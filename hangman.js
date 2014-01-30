@@ -34,7 +34,25 @@
     document.getElementById('game').className="";
     document.getElementById('landing').className="hide";
     e.preventDefault();
+
+    //CALL THE VIEWS HERE, INTERPOLATE DATA
+    //correct
+
+    //letters left to guess
+
+    //incorrect letters
+
   });
+
+  //LETTER BOXES - use for all views
+
+  function wordBox(letter){
+    var el = document.createElement('div');
+    el.className="letter";
+    el.setAttribute("data-letter", letter);
+    return el;
+  };
+
 
   function displayGame(wordArr){
 
