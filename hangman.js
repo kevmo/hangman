@@ -35,28 +35,59 @@
     document.getElementById('landing').className="hide";
     e.preventDefault();
 
-    //CALL THE VIEWS HERE, INTERPOLATE DATA
-    //correct
+    //turn word into array
+    word = word.split("");
+    console.log("word: ", word);
+
+    //CALL THE VIEWS HERE, ATTACH guess boxes TO PAGE
+    for (var i = 0; i < word.length; i++){
+      var letter =  wordBox(word[i]);
+      document.getElementById("correct").appendChild(letter);
+    }
 
     //letters left to guess
+
+    var lettersLeft = letterDisplay();
+    for (var key in lettersLeft){
+      document.getElementById('available').appendChild(lettersLeft[key]);
+    }
 
     //incorrect letters
 
   });
 
-  //LETTER BOXES - use for all views
+  //LETTER BOXES - use for all views - functional inheritance
 
   function wordBox(letter){
     var el = document.createElement('div');
     el.className="letter";
     el.setAttribute("data-letter", letter);
     return el;
+  }
+
+  //add all of alphabet to choices
+
+  function letterDisplay(){
+    var letters = [];
+    for (var key in alphabetObj){
+      var el = document.createElement("span");
+      el.setAttribute('data-letter', key);
+      el.innerHTML = key;
+      //ON CLICK, CHECK TO SEE IF VALUE EXISTS
+      //IF YES, FILL CORRECT BOX, DELETE CHOICE
+      //IF NO, DRAW HANGMAN, DELETE CHOICE
+      el.addEventListener("click", function(e){
+        var guess = el.getAttribute('data-letter');
+        (word.indexOf(guess) === -1) ? console.log("no") :console.log("yes");
+
+        e.preventDefault();
+      })
+      letters.push(el);
+    };
+    return letters;
   };
 
 
-  function displayGame(wordArr){
-
-  }
 
 
 }).call(this);

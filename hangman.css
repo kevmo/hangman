@@ -2,3 +2,17 @@
   visibility: hidden;
 }
 
+.letter{
+  display: inline-block;
+  background-color: black;
+  height: 70px;
+  width: 70px;
+  margin: 10px;
+}
+
+#correct{
+  /*horiztonally center this*/
+  margin-left: auto;
+  margin-right:auto;
+}
+
