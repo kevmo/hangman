@@ -12,7 +12,9 @@
 
 #correct{
   /*horiztonally center this*/
-  margin-left: auto;
-  margin-right:auto;
 }
 
+.choices{
+  display: inline-block;
+  border: 10px;
+}

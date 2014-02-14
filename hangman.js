@@ -70,8 +70,9 @@
   function letterDisplay(){
     var letters = [];
     for (var key in alphabetObj){
-      var el = document.createElement("span");
+      var el = document.createElement("div");
       el.setAttribute('data-letter', key);
+      el.setAttribute('class', 'choices')
       el.innerHTML = key;
       //ON CLICK, CHECK TO SEE IF VALUE EXISTS
       //IF YES, FILL CORRECT BOX, DELETE CHOICE
@@ -86,6 +87,12 @@
     };
     return letters;
   };
+
+  function choseWrong(){};
+
+  function choseRight(){};
+
+  function drawHangman(){}
 
 
 
