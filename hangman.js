@@ -2,18 +2,18 @@
 
   // create alphabet object, all initially keyed to
 
-  var word;
+  let word;
 
   function createAlphaObject (){
-    var a = 97,
+    const a = 97,
         alphabet = {};
-    for (var i = 0; i<26; i++){
+    for (let i = 0; i<26; i++){
       alphabet[String.fromCharCode(a + i)] = false;
     }
     return alphabet;
   };
 
-  var alphabetObj = createAlphaObject();
+  const alphabetObj = createAlphaObject();
 
   console.log(alphabetObj);
 
@@ -40,15 +40,15 @@
     console.log("word: ", word);
 
     //CALL THE VIEWS HERE, ATTACH guess boxes TO PAGE
-    for (var i = 0; i < word.length; i++){
-      var letter =  wordBox(word[i]);
+    for (let i = 0; i < word.length; i++){
+      const letter =  wordBox(word[i]);
       document.getElementById("correct").appendChild(letter);
     }
 
     //letters left to guess
 
-    var lettersLeft = letterDisplay();
-    for (var key in lettersLeft){
+    const lettersLeft = letterDisplay();
+    for (let key in lettersLeft){
       document.getElementById('available').appendChild(lettersLeft[key]);
     }
 
@@ -59,7 +59,7 @@
   //LETTER BOXES - use for all views - functional inheritance
 
   function wordBox(letter){
-    var el = document.createElement('div');
+    const el = document.createElement('div');
     el.className="letter";
     el.setAttribute("data-letter", letter);
     return el;
@@ -68,9 +68,9 @@
   //add all of alphabet to choices
 
   function letterDisplay(){
-    var letters = [];
-    for (var key in alphabetObj){
-      var el = document.createElement("div");
+    const letters = [];
+    for (let key in alphabetObj){
+      const el = document.createElement("div");
       el.setAttribute('data-letter', key);
       el.setAttribute('class', 'choices')
       el.innerHTML = key;
@@ -78,7 +78,7 @@
       //IF YES, FILL CORRECT BOX, DELETE CHOICE
       //IF NO, DRAW HANGMAN, DELETE CHOICE
       el.addEventListener("click", function(e){
-        var guess = el.getAttribute('data-letter');
+        const guess = el.getAttribute('data-letter');
         (word.indexOf(guess) === -1) ? console.log("no") :console.log("yes");
 
         e.preventDefault();
